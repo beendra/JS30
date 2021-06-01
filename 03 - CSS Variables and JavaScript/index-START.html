@@ -36,9 +36,6 @@
     .hl { 
       color: var(--base);
     }
-    /*
-      misc styles, nothing to do with CSS variables
-    */
 
     body {
       text-align: center;
@@ -61,9 +58,7 @@
   <script>
     const inputs = document.querySelectorAll('.controls input');
     function handleUpdate(){
-      //console.log(this.dataset); dataset is an object that will contain all of the data attributes from that specific element  it will take everything that has data- on that element and put it into an object for you
       const suffix = this.dataset.sizing || '';
-      //next update the variable
       document.documentElement.style.setProperty(`--${this.name}`, this.value + suffix);
     }
     inputs.forEach(input => input.addEventListener('change', handleUpdate));
