@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Flex Panels 💪</title>
+  <link href='https://fonts.googleapis.com/css?family=Amatic+SC' rel='stylesheet' type='text/css'>
+</head>
+<body>
+  <style>
+    html {
+      box-sizing: border-box;
+      background: #ffc600;
+      font-family: 'helvetica neue';
+      font-size: 20px;
+      font-weight: 200;
+    }
+    
+    body {
+      margin: 0;
+    }
+    
+    *, *:before, *:after {
+      box-sizing: inherit;
+    }
+
+    .panels {
+      min-height: 100vh;
+      overflow: hidden;
+      display: flex;
+    }
+
+    .panel {
+      background: #6B0F9C;
+      box-shadow: inset 0 0 0 5px rgba(255,255,255,0.1);
+      color: white;
+      text-align: center;
+      align-items: center;
+      /* Safari transitionend event.propertyName === flex */
+      /* Chrome + FF transitionend event.propertyName === flex-grow */
+      transition:
+        font-size 0.7s cubic-bezier(0.61,-0.19, 0.7,-0.11),
+        flex 0.7s cubic-bezier(0.61,-0.19, 0.7,-0.11),
+        background 0.2s;
+      font-size: 20px;
+      background-size: cover;
+      background-position: center;
+      flex: 1;
+      justify-content: center;
+      align-items: center;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .panel1 { background-image:url(https://previews.dropbox.com/p/thumb/ABKn_WeSZalfjgC1PaBxI_SGMKfBNoC-FIegT2jWJgXbA1EEI2DT7Tj4CUwI9Lg3gr0xylCmXNS4Ip7ob5IULzDTSaEUu7HQBHdZASxGhz45Fra0hVdknftxWHE9snR95-HpClEjWG5hnBbLmDvmDuDJ8DFGdzTQoHQX65fFabLOYupPV74kSMzjCfJJx4jFcJVYG0JQ9tCDPTJOzjIJWi1TqQA1Z3EGFSowu8HAIv6SMP0tJlYe02kTxkDolqeq5_7gG_vQDeYdS7xtwYyW9ZJYkic5ZqS5gf3rSv8u0XSO0lnSddZyO_jQyTmTyoObd4hJNd44vv6j3kM-H41uUCzY9RcvqkogITTIyIcIQtf04Q/p.jpeg?fv_content=true&size_mode=5); }
+    .panel2 { background-image:url(https://previews.dropbox.com/p/thumb/ABLMeNKA_LCfwZFEys5W3YV1VzwmUWTHiPXDINBbaSJEStup7Me8IGdQjTxcxOrp08p-l0FISl3s_waJANS3UwVd4VK68OKuJ4NYlG3UBbMOMVKZEL1tZ5q9wp_kec_EKxIJABVVcRXN7rCWjbMLI7CV0fRc12GeO8SW8IBLgLESY6LUAIj5XEvSar5Pdl-RGw9A10urKqiX4hHGl1Oy8yDZuTQJIr8ihZwkfS3blN43s6957UuCUhEHWYU3uZMJ492ircer6XOcOS-dcaSsFSPW00YFxMD-qX-8ooSEjB8ACn-KAw86WlVQWw3nTIlhMs-FIqge2D8ve-V3zY_LyDuLyWT4F-AFUeBFQ1hPxgOPLw/p.jpeg?fv_content=true&size_mode=5); }
+    .panel3 { background-image:url(https://previews.dropbox.com/p/thumb/ABIZp7wqrwd4bzmwZaaHxj7-m0zeGO2UEK0dkx8xu8jk0v2ksYZFGXOEV_ciaYt_lUSGbXjrpvK3PG6cMtHQ8wcPUfMS-WDpUrxbdqMG6m9fNIB18PRtZV0_XXm49y38qn0NqsXe2rpo35Fzf4cGv3ItVqYOtNui0kEs3mN6pTAiLzl_l_lBUPp1mMCBPUGe7NLOtsvCSeUZjf4kdhVjAYMw62K_NY2Cn1ZBzSFydNKm8ryG93tu6UVMYfTz3iaehXLIXJYoH0fha7ua6vzI2Gr8NgoPWBYMrNt0dzDggFQ_B5HXu3-gg-uwvPYfBwFuyZf8XoyHYj99OFKTFlPvK5UqGeGd3YfXZ0TlrP_aMvPYwg/p.jpeg?fv_content=true&size_mode=5); }
+    .panel4 { background-image:url(https://previews.dropbox.com/p/thumb/ABKn_WeSZalfjgC1PaBxI_SGMKfBNoC-FIegT2jWJgXbA1EEI2DT7Tj4CUwI9Lg3gr0xylCmXNS4Ip7ob5IULzDTSaEUu7HQBHdZASxGhz45Fra0hVdknftxWHE9snR95-HpClEjWG5hnBbLmDvmDuDJ8DFGdzTQoHQX65fFabLOYupPV74kSMzjCfJJx4jFcJVYG0JQ9tCDPTJOzjIJWi1TqQA1Z3EGFSowu8HAIv6SMP0tJlYe02kTxkDolqeq5_7gG_vQDeYdS7xtwYyW9ZJYkic5ZqS5gf3rSv8u0XSO0lnSddZyO_jQyTmTyoObd4hJNd44vv6j3kM-H41uUCzY9RcvqkogITTIyIcIQtf04Q/p.jpeg?fv_content=true&size_mode=5); }
+    .panel5 { background-image:url(https://previews.dropbox.com/p/thumb/ABICHvyhugwdoxi8m3Fs30frPEqIPMX2mQLUuZEem8woCqvF67WJp6Y4iM8cmLjBe22nO__iuVLeWO0fh56qDbubvmOUH2zYqXyNi2WNProofsDluUO1D0aRP1MPHJ7Kov-ZXJF7vAIxFt42prWoLUc404K-7RwdFm9m0UO1eyI7WlBwvi3lJ-pLJl3uV5dyKim5B5aArz0E812RtPf7m7EFlO-9UQP5su4c1v5GlUXdrnWHF8Wa-Th5cgZFGkPWfqrZFxGpqjrX130enCfqKAe0n--2BDq6SzrEo_Q9YPH9xCgB7JXGO_FcZIaAO49FyWidterGRmy0diwLo2vrV3_rnUal9esjlaeKmiWI8zYpGw/p.jpeg?fv_content=true&size_mode=5); }
+
+    /* Flex Children */
+    .panel > * {
+      margin: 0;
+      width: 100%;
+      transition: transform 0.5s;
+      flex: 1 0 auto;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .panel > *:first-child { transform: translateY(-100%); }
+    .panel.open-active > *:first-child { transform: translateY(0); }
+    .panel > *:last-child { transform: translateY(100%); }
+    .panel.open-active > *:last-child { transform: translateY(0); }
+
+
+    .panel p {
+      text-transform: uppercase;
+      font-family: 'Amatic SC', cursive;
+      text-shadow: 0 0 4px rgba(0, 0, 0, 0.72), 0 0 14px rgba(0, 0, 0, 0.45);
+      font-size: 2em;
+    }
+    
+    .panel p:nth-child(2) {
+      font-size: 4em;
+    }
+
+    .panel.open {
+      flex: 5;
+      font-size: 40px;
+    }
+
+  </style>
+
+
+  <div class="panels">
+    <div class="panel panel1">
+      <p>Hey</p>
+      <p>Let's</p>
+      <p>Go</p>
+    </div>
+    <div class="panel panel2">
+      <p>Give</p>
+      <p>Take</p>
+      <p>Receive</p>
+    </div>
+    <div class="panel panel3">
+      <p>Experience</p>
+      <p>It</p>
+      <p>All</p>
+    </div>
+    <div class="panel panel4">
+      <p>Give</p>
+      <p>All</p>
+      <p>You can</p>
+    </div>
+    <div class="panel panel5">
+      <p>Life</p>
+      <p>In</p>
+      <p>Motion</p>
+    </div>
+  </div>
+
+  <script>
+    const panels = document.querySelectorAll('.panel');
+
+    function toggleOpen(){
+      this.classList.toggle('open');
+    }
+
+    function toggleActive(e){
+      console.log(e.propertyName);
+      if(e.propertyName.includes('flex')){
+      this.classList.toggle('open-active');
+      }
+    }
+
+    panels.forEach(panel => panel.addEventListener('click', toggleOpen));
+    panels.forEach(panel => panel.addEventListener('transitionend', toggleActive));
+  </script>
+
+
+
+</body>
+</html>
